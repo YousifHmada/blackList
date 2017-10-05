@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<md-toolbar color=\"primary\">\n  <button md-button><md-icon>explore</md-icon> Black List</button>\n  <span class=\"example-spacer\"></span>\n  <button *ngIf=\"!loggedIn\" (click)=\"loginWithOptions()\" md-button>login with facebook</button>\n  <img *ngIf=\"loggedIn\"  src=\"{{image}}\" class=\"img-circle\" alt=\"{{name}}\"  height=\"40\"> \n  <button md-icon-button [mdMenuTriggerFor]=\"menu\">\n  <md-icon>more_vert</md-icon>\n</button>\n<md-menu #menu=\"mdMenu\">\n  <button md-menu-item>\n    <md-icon>dialpad</md-icon>\n    <span>Logout </span>\n  </button>\n</md-menu>\n\n\n</md-toolbar>\n"
+module.exports = "<md-toolbar color=\"primary\">\n  <button md-button><md-icon>explore</md-icon> Black List</button>\n  <span class=\"example-spacer\"></span>\n  <button *ngIf=\"!loggedIn\" (click)=\"loginWithOptions()\" md-button>login with facebook</button>\n  <img *ngIf=\"loggedIn\"  src=\"{{image}}\" class=\"img-circle\" alt=\"{{name}}\"  height=\"40\"> \n  <button md-icon-button [mdMenuTriggerFor]=\"menu\">\n  <md-icon>more_vert</md-icon>\n</button>\n<md-menu #menu=\"mdMenu\">\n  <button md-menu-item>\n    <md-icon>dialpad</md-icon>\n    <span>Logout </span>\n  </button>\n</md-menu>\n</md-toolbar>\n\n<br><br>\n\n<div class=\"container\">\n  <h1 *ngIf=\"!loggedIn\">Please login to get the full features .</h1>\n  <div *ngIf=\"loggedIn\" class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n      <div class=\"thumbnail\">\n        <img src=\"{{cover}}\" alt=\"Lights\" style=\"width:100%\">\n        <div class=\"caption\">\n          <p>Welcome {{name}}...</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -109,7 +109,7 @@ var AppComponent = (function () {
      */
     AppComponent.prototype.getProfile = function () {
         var _this = this;
-        this.fb.api('/me?fields=id,picture,name,cover')
+        this.fb.api('/me?fields=id,picture.height(300).width(300),name,cover')
             .then(function (res) {
             console.log(res);
             _this.image = res.picture.data.url;
@@ -124,6 +124,7 @@ var AppComponent = (function () {
         this.loggedIn = false;
         this.image = null;
         this.name = null;
+        this.cover = null;
     };
     AppComponent.prototype.handleError = function (error) {
         console.error('Error processing action', error);

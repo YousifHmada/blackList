@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
    * Get the user's profile
    */
   getProfile() {
-    this.fb.api('/me?fields=id,picture,name,cover')
+    this.fb.api('/me?fields=id,picture.height(300).width(300),name,cover')
       .then((res: any) => {
         console.log(res);
         this.image = res.picture.data.url;
@@ -85,6 +85,7 @@ export class AppComponent implements OnInit {
     this.loggedIn = false;
     this.image= null;
     this.name = null;
+    this.cover = null;
   }
 
 

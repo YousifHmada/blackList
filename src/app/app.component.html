@@ -12,6 +12,21 @@
     <span>Logout </span>
   </button>
 </md-menu>
-
-
 </md-toolbar>
+
+<br><br>
+
+<div class="container">
+  <h1 *ngIf="!loggedIn">Please login to get the full features .</h1>
+  <div *ngIf="loggedIn" class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <img src="{{cover}}" alt="Lights" style="width:100%">
+        <div class="caption">
+          <p>Welcome {{name}}...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
