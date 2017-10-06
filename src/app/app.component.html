@@ -32,7 +32,7 @@
 <div class="container">
     <h1 *ngIf="!resultsExist && !loggedIn">Welcome to Black list where your life sucks, FML</h1>
     <div>
-      <h1 *ngIf="!resultsExist">can't find result for {{movies.value}}</h1>
+      <h1 *ngIf="!resultsExist && firstHit">can't find result for {{movies.value}}</h1>
       <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)" >
           <div ngxSlickItem *ngFor="let movie of filteredMovies | async" class="slide" style="padding: 15px">
                 <a href="https://image.tmdb.org/t/p/w640{{movie.poster_path}}"><img src="https://image.tmdb.org/t/p/w640{{movie.poster_path}}" alt="{{ movie.title }}" width="100%"></a>

@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   image = null;
   name = null;
   cover = null;
+  firstHit = true;
 
   openSnackBar() {
     this.snackBar.open("Please Login to enjoy the full features","", {
@@ -47,6 +48,7 @@ export class AppComponent implements OnInit {
         this.filteredMovies = this.http.get('https://api.themoviedb.org/3/search/multi?api_key=feed0cd312ab707673bf5186ef09fd63&language=en-US&query='+data+'&page=1&include_adult=false')
             .map((response : Response)=>{
               console.log(response.json());
+              this.firstHit = false;
               if(response.json().results.length > 0){
                 this.resultsExist = true;
               }else{
