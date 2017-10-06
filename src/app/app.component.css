@@ -3,8 +3,9 @@
 }
 
 .example-spacer {
-  flex: 1 1 auto;
+  flex: 0.5 0.5 auto;
 }
+
 
 .img-circle {
     border-radius: 50%;
@@ -14,4 +15,26 @@ button {
     border: hidden;
     cursor: pointer;
     outline: none;
+}
+
+
+.example-form {
+  text-align: center;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  text-align: center;
+  font-size: 13px;
+  width: 100%;
+}
+
+.hideRest{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
 }

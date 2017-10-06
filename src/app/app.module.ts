@@ -1,22 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FacebookModule } from 'ngx-facebook';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import {MdButtonModule, MdCheckboxModule, MdIconModule, MdToolbarModule, MdMenuModule} from '@angular/material';
+import { MdSnackBarModule, MatFormFieldModule, MdListModule, MdGridListModule, MdAutocompleteModule, MdButtonModule, MdCheckboxModule, MdIconModule, MdToolbarModule, MdMenuModule} from '@angular/material';
+import { HttpModule } from "@angular/http";
+// Import your library
+import { SlickModule } from 'ngx-slick';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MdListModule,
     BrowserAnimationsModule,
-    MdButtonModule, 
+    MdButtonModule,
+    MatFormFieldModule,
     MdCheckboxModule,
+    MdGridListModule,
     MdIconModule,
+    MdSnackBarModule,
     MdToolbarModule,
     MdMenuModule,
+    MdAutocompleteModule,
+    SlickModule.forRoot(),
     FacebookModule.forRoot()
   ],
   providers: [],
