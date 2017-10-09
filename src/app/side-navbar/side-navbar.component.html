@@ -1,0 +1,29 @@
+<md-list>
+  <md-list-item>
+  	<span (click)="sidenav.emit()" class="pointer" style="margin-left: 10px">
+      <i class="fa fa-bars fa-lg pointer" aria-hidden="true"></i>
+    </span>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item>
+    <img mdListAvatar src="{{userService.authUser.authUserPicture}}" alt="{{userService.authUser.authUserName}}">
+    <h3 mdLine> {{userService.authUser.authUserName}} </h3>
+    <p mdLine>
+      <span> Web Developer </span>
+      <span class="demo-2"> -- i'm a graphics designer of 2 years of experience </span>
+    </p>
+  </md-list-item>
+  <h3 md-subheader>Folders</h3>
+  <md-list-item *ngFor="let folder of folders">
+    <md-icon md-list-icon>folder</md-icon>
+    <h4 md-line>{{folder.name}}</h4>
+    <p md-line> {{folder.updated | date}} </p>
+  </md-list-item>
+  <md-divider></md-divider>
+  <h3 md-subheader>Notes</h3>
+  <md-list-item *ngFor="let note of notes">
+    <md-icon md-list-icon>note</md-icon>
+    <h4 md-line>{{note.name}}</h4>
+    <p md-line> {{note.updated | date}} </p>
+  </md-list-item>
+</md-list>

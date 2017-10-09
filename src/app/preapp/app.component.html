@@ -1,0 +1,58 @@
+<md-toolbar color="primary">
+
+  <button md-button><md-icon>explore</md-icon> Black List</button>
+
+  <span class="example-spacer"></span>
+
+   <form>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" [formControl]="movies">
+    </div>
+  </form> 
+
+  <span class="example-spacer"></span>
+
+  <button *ngIf="!loggedIn" (click)="loginWithOptions()" md-button>login with facebook</button>
+  <img *ngIf="loggedIn"  src="{{image}}" class="img-circle" alt="{{name}}"  height="40"> 
+  <button *ngIf="loggedIn" md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu  #menu="mdMenu">
+    <button md-menu-item>
+      <md-icon>dialpad</md-icon>
+      <span>Logout </span>
+    </button>
+  </md-menu>
+
+</md-toolbar>
+
+<br><br>
+
+
+<div class="container">
+    <h1 *ngIf="!resultsExist && !loggedIn">Welcome to Black list where your life sucks, FML</h1>
+    <div>
+      <h1 *ngIf="!resultsExist && !firstHit">can't find result for {{movies.value}}</h1>
+      <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)" >
+          <div ngxSlickItem *ngFor="let movie of filteredMovies | async" class="slide" style="padding: 15px">
+                <a href="https://image.tmdb.org/t/p/w640{{movie.poster_path}}"><img src="https://image.tmdb.org/t/p/w640{{movie.poster_path}}" alt="{{ movie.title }}" width="100%"></a>
+                <h3> {{ movie.title }} </h3>
+                <p>
+                  <span> {{movie.media_type}} </span>
+                  <span> -- {{movie.release_date}} </span>
+                </p>
+          </div>
+      </ngx-slick>
+  </div>
+  <div *ngIf="loggedIn" class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <img src="{{cover}}" alt="Lights" style="width:100%">
+        <div class="caption">
+          <p>Welcome {{name}}...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

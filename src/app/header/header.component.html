@@ -1,0 +1,35 @@
+<md-toolbar color="primary">
+    <span (click)="sidenav.emit()" style="margin-left: 10px" >
+      <i class="fa fa-bars fa-lg pointer" aria-hidden="true"></i>
+    </span>
+    <span class="example-spacer"></span>
+    <span class="pointer" *ngIf="userService.authUser == null" (click)="userService.loginWithFacebook()">login</span>
+    <a mdTooltip="profile"  [routerLink]="['/user',userService.authUser.authUserId,'profile']" class="pointer">
+      <img src="{{userService.authUser.authUserPicture}}" class="img-profile" alt="Cinque Terre" width="40" height="40"> 
+    </a>
+    <span>
+      <i class="fa fa-ellipsis-v fa-lg pointer" style="margin-right: 10px" aria-hidden="true"></i>
+    </span>
+</md-toolbar>
+<!-- <div class="wrapper">
+  <nav>
+    <ul>
+      <li class="flexed">
+        <a (click)="sidenav.emit()"><i class="fa fa-bars fa-2x pointer" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+    <ul>
+      <li class="flexed" style="margin-right: 10px;padding-top: 17px">
+        <a *ngIf="userService.authUser == null" (click)="userService.loginWithFacebook()">login</a>
+      </li>
+      <li class="flexed" style="margin-right: 10px;padding-top: 17px">
+        <a *ngIf="userService.authUser != null" [routerLink]="['/user',userService.authUser.authUserId,'profile']">{{userService.authUser.authUserName}}</a>
+      </li>
+      <li class="flexed">
+        <a>
+          <img src="{{userService.authUser.authUserPicture}}" class="img-profile" alt="Cinque Terre" width="50" height="50"> 
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div> -->
