@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+*{
+      padding: 0px;
+      margin: 0px;
+}
 
 *.unselectable {
    -moz-user-select: none;
@@ -12,4 +16,12 @@
    */
    -ms-user-select: none;
    user-select: none;
+}
+
+body:{
+	height: 100%;
+}
+
+.selector-for-some-widget {
+  box-sizing: border-box;
 }

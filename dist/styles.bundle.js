@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 exports.i(__webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../material/prebuilt-themes/indigo-pink.css"), "");
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n\n*.unselectable {\n   -moz-user-select: none;\n   -webkit-user-select: none;\n\n   /*\n     Introduced in IE 10.\n     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/\n   */\n   -ms-user-select: none;\n   user-select: none;\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n*{\n      padding: 0px;\n      margin: 0px;\n}\n\n*.unselectable {\n   -moz-user-select: none;\n   -webkit-user-select: none;\n\n   /*\n     Introduced in IE 10.\n     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/\n   */\n   -ms-user-select: none;\n   user-select: none;\n}\n\nbody:{\n\theight: 100%;\n}\n\n.selector-for-some-widget {\n  box-sizing: border-box;\n}", ""]);
 
 // exports
 
