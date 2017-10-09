@@ -12,7 +12,7 @@ var {Authenticated} = require('./db/middlewares/authenticated');
 
 
 var app = express();
-const port = process.env.PORT;
+var port = process.env.PORT || 4200;
 
 app.use(bodyParser.json());
 
