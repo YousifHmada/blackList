@@ -4,7 +4,7 @@
     </span>
     <span class="example-spacer"></span>
     <span class="pointer" *ngIf="userService.authUser == null" (click)="userService.loginWithFacebook()">login</span>
-    <a mdTooltip="profile"  [routerLink]="['/user',userService.authUser.authUserId,'profile']" class="pointer">
+    <a *ngIf="userService.authUser != null" mdTooltip="profile"  [routerLink]="['/user',userService.authUser.authUserId,'profile']" class="pointer">
       <img src="{{userService.authUser.authUserPicture}}" class="img-profile" alt="Cinque Terre" width="40" height="40"> 
     </a>
     <span>

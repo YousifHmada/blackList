@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() sidenav = new EventEmitter<any>();
 
-  constructor(private userService: UserService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
   	this.userService.tryLogin.subscribe(

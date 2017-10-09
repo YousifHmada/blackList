@@ -36,7 +36,7 @@ export class SideNavbarComponent implements OnInit {
 	    }
 	  ];
 
-  constructor(private userService: UserService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
   }
