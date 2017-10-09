@@ -5,8 +5,8 @@
     </span>
   </md-list-item>
   <md-divider></md-divider>
-  <md-list-item>
-    <img mdListAvatar src="{{userService.authUser.authUserPicture}}" alt="{{userService.authUser.authUserName}}">
+  <md-list-item *ngIf="userService.authUser != null">
+    <img mdListAvatar  src="{{userService.authUser.authUserPicture}}" alt="{{userService.authUser.authUserName}}">
     <h3 mdLine> {{userService.authUser.authUserName}} </h3>
     <p mdLine>
       <span> Web Developer </span>
