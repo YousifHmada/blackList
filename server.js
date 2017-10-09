@@ -112,10 +112,10 @@ app.get('/delete', (req, res)=>{
   Movie.remove({}).then((data)=>res.send(data)).catch((e)=>res.send(e));
 });
 
-//app.use(function(req, res) {
+app.use(function(req, res) {
   // Use res.sendfile, as it streams instead of reading the file into memory.
-//  res.sendfile(__dirname + '/dist/index.html');
-//});
+  res.sendfile(__dirname + '/dist/index.html');
+});
 
 app.listen(port, () => {
   console.log(`Started up at port ${port}`);
