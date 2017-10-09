@@ -19,7 +19,6 @@ app.use(bodyParser.json());
 app.use(express.static('dist'));
 
 
-
 app.post('/users/login/fb', (req, res)=>{
     User.fbRegisterOrLogin(req.body.fbAccessToken)
     .then((user)=>{
