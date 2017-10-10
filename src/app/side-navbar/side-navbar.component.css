@@ -5,3 +5,7 @@
 ul.nav{
   padding-top: 11px;
 }
+
+.selectMe:hover{
+	background-color: #d1d2d3;
+}

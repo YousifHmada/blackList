@@ -1,0 +1,14 @@
+/*.example-card {
+  width: 400px;
+}*/
+
+.slide{
+	margin:20px;
+}
+
+.myspinner{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+
+}

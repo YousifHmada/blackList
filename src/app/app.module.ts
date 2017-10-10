@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FacebookModule } from 'ngx-facebook';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { MdTooltipModule, MdSidenavModule, MdSnackBarModule, MatFormFieldModule, MdListModule, MdGridListModule, MdAutocompleteModule, MdButtonModule, MdCheckboxModule, MdIconModule, MdToolbarModule, MdMenuModule} from '@angular/material';
+import { MatProgressSpinnerModule, MatInputModule, MatCardModule, MdTooltipModule, MdSidenavModule, MdSnackBarModule, MatFormFieldModule, MdListModule, MdGridListModule, MdAutocompleteModule, MdButtonModule, MdCheckboxModule, MdIconModule, MdToolbarModule, MdMenuModule} from '@angular/material';
 import { HttpModule } from "@angular/http";
 // Import your library
 import { SlickModule } from 'ngx-slick';
@@ -15,6 +15,9 @@ import { ProfileComponent } from './user/profile.component';
 import { routing } from "./app.routes";
 import { UserService } from "./user/user.service";
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { SearchBoardComponent } from './search/search-board.component';
+import { SearchItemComponent } from './search/search-item.component';
+import {  TruncatePipe }   from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
     UserComponent,
     ProfileComponent,
     SideNavbarComponent,
+    SearchBoardComponent,
+    SearchItemComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
     routing,
     ReactiveFormsModule,
     FormsModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
     MdTooltipModule,
+    MatInputModule,
     MdListModule,
     BrowserAnimationsModule,
     MdButtonModule,

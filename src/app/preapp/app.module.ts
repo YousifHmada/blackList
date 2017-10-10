@@ -5,7 +5,7 @@ import { FacebookModule } from 'ngx-facebook';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { RouterModule } from "@angular/router";
-import { MdSnackBarModule, MatFormFieldModule, MdListModule, MdGridListModule, MdAutocompleteModule, MdButtonModule, MdCheckboxModule, MdIconModule, MdToolbarModule, MdMenuModule} from '@angular/material';
+import { MatFormFieldModule , MatInputModule, MdSnackBarModule, MdListModule, MdGridListModule, MdAutocompleteModule, MdButtonModule, MdCheckboxModule, MdIconModule, MdToolbarModule, MdMenuModule} from '@angular/material';
 import { HttpModule } from "@angular/http";
 // Import your library
 import { SlickModule } from 'ngx-slick';
@@ -22,8 +22,9 @@ import { SlickModule } from 'ngx-slick';
     FormsModule,
     MdListModule,
     BrowserAnimationsModule,
-    MdButtonModule,
     MatFormFieldModule,
+    MdButtonModule,
+    MatInputModule,
     MdCheckboxModule,
     MdGridListModule,
     MdIconModule,

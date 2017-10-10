@@ -1,0 +1,27 @@
+<div *ngIf="!resultCame" class="myspinner">
+    <md-progress-spinner
+        class="example-margin"
+        [color]="'primary'"
+        [mode]="'indeterminate'"
+        >
+    </md-progress-spinner>
+</div>
+<ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+  <md-card ngxSlickItem class="example-card slide" *ngFor="let movie of Results">
+    <md-card-header>
+  <!--     <div md-card-avatar></div>
+   -->    <md-card-title>{{ getTitle(movie) }}</md-card-title>
+      <md-card-subtitle>{{movie.media_type}} @ {{ getDate(movie) }}</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="https://image.tmdb.org/t/p/w640{{movie.poster_path}}" alt="Photo of {{ movie.title }}">
+    <md-card-content>
+      <p>
+        {{movie.overview | limitTo : 100 }}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button>LIKE</button>
+      <button md-button>SHARE</button>
+    </md-card-actions>
+  </md-card>
+</ngx-slick>

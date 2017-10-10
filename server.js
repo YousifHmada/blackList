@@ -81,6 +81,16 @@ app.get('/movies/api/:tmdbId', (req, res)=>{
     });
 });
 
+app.get('/api/search/:searchQuery/tmdb', (req, res)=>{
+    Movie.searchInTmdb(req.params.searchQuery)
+    .then((movies)=>{
+        res.status(200).send(movies);
+    })
+    .catch((e)=>{
+        res.status(400).send();
+    });
+});
+
 app.get('/movies/:id', (req, res)=>{
     Movie.findById(req.params.id)
     .then((movie)=>{

@@ -24,7 +24,15 @@ a{
   padding: 10px 20px 0px;
   z-index: 2000
 }*/
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
 
+.example-full-width {
+  width: 100%;
+}
 .pointer{
   cursor: pointer
 }
@@ -40,4 +48,14 @@ a{
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+/* When the input is not focused */
+md-input-container label {
+  color: white;
+}
+
+/* When the input is focused */
+md-input-container.md-input-focused label {
+  color: white;
 }

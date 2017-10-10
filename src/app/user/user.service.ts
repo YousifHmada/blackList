@@ -24,6 +24,8 @@ export class UserService {
   tryLogin = new EventEmitter<any>();
 
 
+  afterOperation = new EventEmitter<any>();
+
   getProfile(id) {
     return this.http.get('https://black-list-movies.herokuapp.com/users/'+id+'/profile')
             .map((result)=>result.json());
@@ -43,6 +45,13 @@ export class UserService {
         	"authAccessToken":authAccessToken		
         }
     }
+  }
+
+
+  logout() {
+    localStorage.clear();
+    this.afterOperation.emit(this.authUser.authUserName+" logged out successfully");
+    this.authUser = null;
   }
 
   loginWithFacebook() {
@@ -74,6 +83,7 @@ export class UserService {
         				"authAccessToken":user.authAccessToken,
         			
         			}
+              this.afterOperation.emit(this.authUser.authUserName+" logged in successfully");
         			this.tryLogin.emit()
         		},
         		error=>{

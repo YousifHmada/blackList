@@ -68,25 +68,25 @@ MovieSchema.statics.findByTmdbId = function(tmdbId){
   return Movie.findOne({tmdbId})
             .then((movie)=>{
               if(!movie){
-                return Movie.fetchFromTmdb(tmdbId)
-                  .then((data)=>{
-                    var movie = new Movie();
-                    movie.vote_average = data.vote_average;
-                    movie.vote_count = data.vote_count;
-                    movie.overview = data.overview;
-                    movie.genres = _.map(data.genres, (current)=>{
-                      return _.pick(current,['name'])
-                    });
-                    movie.release_date = data.release_date;
-                    movie.picture= 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+data.poster_path;
-                    movie.name= data.original_title;
-                    movie.tmdbId = data.id;
-                    console.log(movie);
-                    return movie.save()
-                      .then(d=>Promise.resolve(d))
-                      .catch((e)=>Promise.reject(e))
-                  })
-                  .catch((e)=>Promise.reject(e))
+                return Movie.fetchFromTmdb(tmdbId);
+                  // .then((data)=>{
+                  //   var movie = new Movie();
+                  //   movie.vote_average = data.vote_average;
+                  //   movie.vote_count = data.vote_count;
+                  //   movie.overview = data.overview;
+                  //   movie.genres = _.map(data.genres, (current)=>{
+                  //     return _.pick(current,['name'])
+                  //   });
+                  //   movie.release_date = data.release_date;
+                  //   movie.picture= 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+data.poster_path;
+                  //   movie.name= data.original_title;
+                  //   movie.tmdbId = data.id;
+                  //   console.log(movie);
+                  //   return movie.save()
+                  //     .then(d=>Promise.resolve(d))
+                  //     .catch((e)=>Promise.reject(e))
+                  // })
+                  // .catch((e)=>Promise.reject(e))
               }else{
                 return Promise.resolve(movie);
               }
@@ -96,6 +96,11 @@ MovieSchema.statics.findByTmdbId = function(tmdbId){
 
 MovieSchema.statics.fetchFromTmdb = function(tmdbId){
   return axios.get('https://api.themoviedb.org/3/movie/'+tmdbId+'?api_key=feed0cd312ab707673bf5186ef09fd63&language=en-US')
+          .then(data=>data.data);
+}
+
+MovieSchema.statics.searchInTmdb = function(query){
+  return axios.get('https://api.themoviedb.org/3/search/multi?api_key=feed0cd312ab707673bf5186ef09fd63&language=en-US&query='+encodeURIComponent(query)+'&page=1&include_adult=false')
           .then(data=>data.data);
 }
 
